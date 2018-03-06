@@ -1,0 +1,18 @@
+<h1>Game</h1>
+
+<p>
+  <strong>Player: <%= @game.player %></strong>
+</p>
+<p>
+  <strong>Score: <%= @game.score %></strong>
+</p>
+
+<%= form_with scope: :game, url: game_path(@game), method: :put, local: true do |form| %>
+  <%= form.label :pin %>
+  <%= form.text_field :pin %>
+  <%= form.submit %>
+<% end %>
+
+<p>
+  <%= link_to 'Back', games_path %>
+</p>

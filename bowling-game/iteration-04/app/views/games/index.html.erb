@@ -1,0 +1,21 @@
+<h1>Games</h1>
+
+<%= form_with scope: :game, url: games_path, method: :post, local: true do |form| %>
+  <%= form.label :player %>
+  <%= form.text_field :player %>
+  <%= form.submit %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Score</th>
+  </tr>
+  <tr>
+    <% @games.each do |game| %>
+      <td><%= game.player %></td>
+      <td><%= game.score %></td>
+      <td><%= link_to 'Show', game_path(game) %></td>
+    <% end %>
+  </tr>
+</table>
